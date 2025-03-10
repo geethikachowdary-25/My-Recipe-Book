@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile Page</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+        /* Full page background style */
+        .full-page {
+            height: 100vh;
+            background-image: url('https://t3.ftcdn.net/jpg/07/73/87/92/360_F_773879224_FFcpEg2eU3ckQPqMuQpdqhTGve9Ary8H.jpg');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            font-family: 'Arial', sans-serif;
+        }
+        /* Profile content container */
+.profile-container {
+    background: rgba(0, 0, 0, 0.6); /* Dark background for readability */
+    padding: 20px; /* Increased padding for better spacing */
+    border-radius: 12px;
+    width: 400px; /* Slightly increased width for better input field alignment */
+    max-width: 90%; /* Ensures it doesn't get too wide on larger screens */
+    text-align: left;
+    height: auto; /* Adjust height based on content */
+    max-height: 600px; /* Increased max height to fit more fields */
+    overflow-y: auto; /* Scroll if content exceeds max height */
+}
+
+        h1 {
+            text-align: center;
+            margin-bottom: 15px;
+            font-size: 20px; /* Reduced font size */
+            color: #FF5722;
+        }
+        .profile-field {
+            margin-bottom: 12px;
+        }
+        .profile-field label {
+            font-size: 14px; /* Reduced label font size */
+            display: block;
+            margin-bottom: 5px;
+            color: white;
+        }
+        .profile-field input, .profile-field select, .profile-field textarea {
+            width: 100%;
+            padding: 8px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+            font-size: 14px; /* Reduced input font size */
+        }
+        .profile-field button {
+            background-color: #FF5722;
+            color: white;
+            border: none;
+            padding: 10px;
+            width: 100%;
+            font-size: 16px; /* Reduced button font size */
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        .profile-field button:hover {
+            background-color: #e64a19;
+        }
+
+        /* Responsive styles for mobile */
+        @media (max-width: 480px) {
+            .profile-container {
+                width: 95%; /* Ensure the container is nearly full width on smaller screens */
+                max-width: 100%; /* Allow container to stretch across mobile screens */
+            }
+            h1 {
+                font-size: 18px; /* Further reduce heading font size for mobile screens */
+            }
+            .profile-field label {
+                font-size: 12px; /* Make label font size smaller */
+            }
+            .profile-field input, .profile-field select, .profile-field textarea {
+                font-size: 12px; /* Smaller input font size */
+            }
+            .profile-field button {
+                font-size: 14px; /* Button font size smaller on mobile */
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="full-page">
+        <div class="profile-container">
+            <h1>Profile Information</h1>
+            <div class="profile-field">
+                <label for="first-name">First Name</label>
+                <input type="text" id="first-name" name="first-name" placeholder="Enter your first name">
+            </div>
+            <div class="profile-field">
+                <label for="last-name">Last Name</label>
+                <input type="text" id="last-name" name="last-name" placeholder="Enter your last name">
+            </div>
+            <div class="profile-field">
+                <label for="phone">Phone Number</label>
+                <input type="tel" id="phone" name="phone" placeholder="Enter your phone number">
+            </div>
+            <div class="profile-field">
+                <label for="email">Email ID</label>
+                <input type="email" id="email" name="email" placeholder="Enter your email address">
+            </div>
+            <div class="profile-field">
+                <label for="city">City</label>
+                <input type="text" id="city" name="city" placeholder="Enter your city">
+            </div>
+            <div class="profile-field">
+                <label for="state">State</label>
+                <input type="text" id="state" name="state" placeholder="Enter your state">
+            </div>
+            <div class="profile-field">
+                <label for="cuisines">Cuisines Interested</label>
+                <select id="cuisines" name="cuisines">
+                    <option value="indian">Indian</option>
+                    <option value="chinese">Chinese</option>
+                    <option value="italian">Italian</option>
+                    <option value="mexican">Mexican</option>
+                    <option value="continental">Continental</option>
+                </select>
+            </div>
+            <div class="profile-field">
+                <label for="address">Address</label>
+                <textarea id="address" name="address" rows="4" placeholder="Enter your address"></textarea>
+            </div>
+            <div class="profile-field">
+                <button type="submit">Save Profile</button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

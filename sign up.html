@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign Up</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-image: url('https://st4.depositphotos.com/1558912/37920/i/600/depositphotos_379206680-stock-photo-food-cooking-background-at-black.jpg');
+      background-size: cover;  
+      background-position: center;  
+      background-attachment: fixed;  
+      height: 100vh;  
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      color: white;
+    }
+
+    .signup-container {
+      background: rgba(0, 0, 0, 0.7); /* Dark background to make text readable */
+      padding: 30px;
+      border-radius: 10px;
+      width: 250px;
+      margin-left: 60px;
+      margin-right: -130px;
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 30px;
+      margin-bottom: 20px;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="tel"],
+    button {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 15px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+
+    button {
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #45a049;
+    }
+
+    .popup-message {
+      display: none;
+      color: red;
+      text-align: center;
+      margin-top: 10px;
+    }
+
+    .success-message {
+      display: none; /* Hide success message initially */
+      text-align: center; 
+      color: white; 
+      padding: 20px;
+      border-radius: 5px;
+      position: absolute;
+      top: 60px; 
+      right: 60px; 
+      font-size: 18px;
+      max-width: 300px;
+    }
+
+    #signupForm {
+      display: flex;
+      flex-direction: column;
+      align-items: center;  
+      width: 100%;
+    }
+
+    #signupForm input,
+    #signupForm button {
+      width: 100%; 
+      padding: 10px;
+      margin-bottom: 15px; 
+      border-radius: 5px; 
+      border: 1px solid #ddd; 
+      font-size: 16px; 
+    }
+
+    #signupForm button {
+      background-color: #4CAF50;
+      color: white;
+      cursor: pointer;
+    }
+
+    #signupForm button:hover {
+      background-color: #45a049;
+    }
+
+  </style>
+</head>
+<body>
+
+  <div class="success-message" id="success-message">Welcome to your kitchen!</div>
+
+  <div class="signup-container">
+    <h1>Sign Up</h1>
+
+    <form id="signupForm">
+      <input type="text" id="name" placeholder="Full Name" required>
+      <input type="email" id="email" placeholder="Email" required>
+      <input type="tel" id="phone" placeholder="Phone Number" required>
+      <button type="submit">Sign Up</button>
+    </form>
+
+    <div class="popup-message" id="error-message">Phone number must be 10 digits</div>
+  </div>
+
+  <script>
+    const form = document.getElementById('signupForm');
+    const successMessage = document.getElementById('success-message');
+    const errorMessage = document.getElementById('error-message');
+    const phoneInput = document.getElementById('phone');
+
+    // Hide the success message initially
+    successMessage.style.display = 'none';
+
+    form.addEventListener('submit', function(event) {
+      event.preventDefault(); // Prevent form submission
+
+      const phone = phoneInput.value.trim();
+      
+      // Check if phone number is exactly 10 digits
+      if (phone.length !== 10 || isNaN(phone)) {
+        errorMessage.style.display = 'block';  // Show the error message
+        successMessage.style.display = 'none';  // Hide the success message
+      } else {
+        errorMessage.style.display = 'none';  // Hide the error message
+        successMessage.style.display = 'block';  // Show the success message
+      }
+    });
+  </script>
+  
+</body>
+</html>

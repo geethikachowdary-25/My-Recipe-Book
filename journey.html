@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Journey Page</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-image: url('https://t4.ftcdn.net/jpg/11/10/18/79/360_F_1110187908_fD7a7FiL1bmGu3Mnsxp9EGrogfFyr5bv.jpg');
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .full-page {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Profile button */
+        .profile-btn {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background-color: #FF5722;
+            color: white;
+            padding: 12px 24px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            font-size: 18px;
+        }
+
+        .profile-btn img {
+            width: 24px;
+            height: 24px;
+            margin-right: 10px;
+        }
+
+        /* Button container */
+        .button-group {
+            position: relative;
+            width: 500px;
+            height: 500px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transform: translateX(200px);
+        }
+
+        /* Animating buttons in circular motion */
+        @keyframes orbit {
+            0% { transform: rotate(0deg) translateX(120px) rotate(0deg); }
+            100% { transform: rotate(360deg) translateX(120px) rotate(-360deg); }
+        }
+
+        .circular-button {
+            position: absolute;
+            width: 110px;
+            height: 110px;
+            border-radius: 50%;
+            background-color: #FF5722;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 16px;
+            text-align: center;
+            cursor: pointer;
+            border: none;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        /* Add different positions & animation delays */
+        .circular-button:nth-child(1) { animation: orbit 6s linear infinite; }
+        .circular-button:nth-child(2) { animation: orbit 6s linear infinite 1.5s; }
+        .circular-button:nth-child(3) { animation: orbit 6s linear infinite 3s; }
+        .circular-button:nth-child(4) { animation: orbit 6s linear infinite 4.5s; }
+
+        /* Hover effect */
+        .circular-button:hover {
+            transform: scale(1.1);
+        }
+    </style>
+</head>
+<body>
+    <div class="full-page">
+        <!-- Profile Button -->
+        <div class="profile-btn">
+            <img src="https://static.vecteezy.com/system/resources/previews/005/544/718/non_2x/profile-icon-design-free-vector.jpg" alt="Profile Icon">
+            <span>My Profile</span>
+        </div>
+
+        <!-- Circular Buttons in Grid -->
+        <div class="button-group">
+            <button class="circular-button">Image</button>
+            <button class="circular-button">Video</button>
+            <button class="circular-button">Describe</button>
+            <button class="circular-button">Make friends</button>
+        </div>
+    </div>
+<div class="profile-btn" onclick="window.location.href='profile.html';">
+    <img src="https://static.vecteezy.com/system/resources/previews/005/544/718/non_2x/profile-icon-design-free-vector.jpg" alt="Profile Icon">
+    <span>My Profile</span>
+</div>
+
+</body>
+</html>

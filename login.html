@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-image: url('https://st5.depositphotos.com/20376588/76747/i/600/depositphotos_767477614-stock-photo-ingredients-cooking-white-table-food.jpg');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      height: 100vh;
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      color: white;
+    }
+
+    .login-container {
+      background: rgba(0, 0, 0, 0.7); 
+      padding: 30px;
+      border-radius: 10px;
+      width: 250px;
+      margin-top: 110px;  /* Moves the login box down */
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 30px;
+      margin-bottom: 20px;
+    }
+
+    input[type="email"],
+    input[type="password"],
+    button {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 15px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+
+    button {
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #45a049;
+    }
+
+    .popup-message {
+      display: none;
+      color: red;
+      text-align: center;
+      margin-top: 10px;
+    }
+
+    .forgot-password {
+      color: #00FF80; /* Changes the color to red */
+      text-align: center;
+      display: block;
+      margin-top: 10px;
+    }
+
+    .success-message {
+      display: none;
+      color: green;
+      text-align: center;
+      margin-top: 10px;
+      color: #00FF80; /* Updated color for success message */
+    }
+
+    #loginForm {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+    }
+
+    #loginForm input,
+    #loginForm button {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 15px;
+      border-radius: 5px;
+      border: 1px solid #ddd;
+      font-size: 16px;
+    }
+
+    #loginForm button {
+      background-color: #4CAF50;
+      color: white;
+      cursor: pointer;
+    }
+
+    #loginForm button:hover {
+      background-color: #45a049;
+    }
+
+  </style>
+</head>
+<body>
+
+  <div class="login-container">
+    <h1>Login</h1>
+    <form id="loginForm">
+      <input type="email" id="email" placeholder="Email" required>
+      <input type="password" id="password" placeholder="Password" required>
+      <button type="submit">Login</button>
+    </form>
+    <a href="#" class="forgot-password">Forgot Password?</a>
+    <div class="popup-message" id="error-message">Invalid Email or Password</div>
+    <div class="success-message" id="success-message">Login Successful!</div>
+  </div>
+
+  <script>
+    const form = document.getElementById('loginForm');
+    const successMessage = document.getElementById('success-message');
+    const errorMessage = document.getElementById('error-message');
+    const emailInput = document.getElementById('email');
+    const passwordInput = document.getElementById('password');
+
+    form.addEventListener('submit', function(event) {
+      event.preventDefault(); // Prevent form submission
+
+      const email = emailInput.value.trim();
+      const password = passwordInput.value.trim();
+
+      // Simple validation check for email and password
+      const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;  // Email regex pattern
+      const passwordRegex = /^(?=.*\d)(?=.*[!@#$%^&*])(?=.*[a-zA-Z]).{8,30}$/;  // Password regex pattern
+
+      // Validate email format
+      if (!emailRegex.test(email)) {
+        errorMessage.textContent = "Please enter a valid email address.";
+        errorMessage.style.display = 'block';
+        successMessage.style.display = 'none';
+        return;
+      }
+
+      // Validate password strength
+      if (!passwordRegex.test(password)) {
+        errorMessage.textContent = "Password must be at least 8 characters, contain 1 number and 1 special character.";
+        errorMessage.style.display = 'block';
+        successMessage.style.display = 'none';
+        return;
+      }
+
+      // If all details are valid
+      errorMessage.style.display = 'none';
+      successMessage.style.display = 'block';
+    });
+  </script>
+
+</body>
+</html>
